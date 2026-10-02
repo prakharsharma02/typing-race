@@ -1,0 +1,18 @@
+node_modules
+dist
+dist-ssr
+*.local
+*.log
+
+# Environment variables — never commit these
+.env
+.env.*
+!.env.example
+
+# Local leaderboard data (ephemeral by design — see README)
+server/leaderboard.json
+
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea

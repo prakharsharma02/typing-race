@@ -1,0 +1,216 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(0, 220, 180, .06), transparent 35%),
+    radial-gradient(circle at 85% 85%, rgba(90, 120, 255, .06), transparent 35%),
+    #0a0e14;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+}
+
+.logo {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #e4e8f0;
+}
+
+.logo::before { content: "▸ "; color: #2dd4bf; }
+
+.app-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.panel {
+  width: min(640px, 100%);
+  background: rgba(20, 26, 36, .7);
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 16px;
+  padding: 36px;
+  backdrop-filter: blur(16px);
+}
+
+h1 { margin: 0 0 6px; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 32px; }
+.subtitle { color: #8b93a7; margin: 0 0 28px; font-size: 14px; }
+
+.field-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.field-group label { font-size: 12px; color: #8b93a7; text-transform: uppercase; letter-spacing: .06em; }
+
+input {
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color .15s ease;
+}
+input:focus { border-color: #2dd4bf; }
+
+.home-actions { display: flex; flex-direction: column; gap: 14px; }
+.join-row { display: flex; gap: 10px; }
+.join-row input { flex: 1; text-transform: uppercase; letter-spacing: .1em; }
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .04);
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.btn:hover:not(:disabled) { border-color: rgba(255, 255, 255, .3); background: rgba(255, 255, 255, .08); }
+.btn:disabled { opacity: .4; cursor: default; }
+
+.btn-primary {
+  background: #2dd4bf;
+  border-color: #2dd4bf;
+  color: #06201c;
+  font-weight: 600;
+}
+.btn-primary:hover:not(:disabled) { background: #5ee6d4; border-color: #5ee6d4; }
+
+.btn-text {
+  background: none;
+  border: none;
+  color: #8b93a7;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.btn-text:hover { color: #e4e8f0; }
+
+.error-text { color: #f87171; font-size: 13px; margin-top: 14px; }
+.waiting-text { color: #8b93a7; font-size: 14px; text-align: center; margin: 18px 0; }
+
+.lobby-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+.eyebrow { display: block; font-size: 11px; color: #8b93a7; letter-spacing: .1em; margin-bottom: 4px; }
+.room-code {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  background: none;
+  border: none;
+  color: #2dd4bf;
+  cursor: pointer;
+  padding: 0;
+}
+
+.player-list { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 8px; }
+.player-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, .03);
+  border-radius: 10px;
+  font-size: 14px;
+}
+.tag {
+  font-size: 10px;
+  background: rgba(45, 212, 191, .15);
+  color: #2dd4bf;
+  padding: 2px 7px;
+  border-radius: 999px;
+  letter-spacing: .05em;
+}
+
+.countdown-panel { text-align: center; }
+.countdown-number {
+  display: block;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 96px;
+  font-weight: 700;
+  color: #2dd4bf;
+  animation: pop .3s ease;
+}
+@keyframes pop {
+  from { transform: scale(.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.race-panel { width: min(760px, 100%); }
+
+.self-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  color: #8b93a7;
+}
+.self-stats strong { color: #e4e8f0; font-size: 18px; margin-right: 4px; }
+
+.race-text {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 20px;
+  line-height: 1.7;
+  letter-spacing: .01em;
+  padding: 20px;
+  background: rgba(0, 0, 0, .25);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  user-select: none;
+  cursor: text;
+}
+.race-text .pending { color: #566070; }
+.race-text .correct { color: #2dd4bf; }
+.race-text .incorrect { color: #f87171; text-decoration: underline wavy; }
+.race-text .current { background: rgba(45, 212, 191, .25); border-radius: 2px; }
+
+.race-input {
+  width: 100%;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(45, 212, 191, .3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+.race-input:disabled { opacity: .5; }
+
+.opponents { display: flex; flex-direction: column; gap: 10px; }
+.opponent-row { display: grid; grid-template-columns: 90px 1fr 60px; align-items: center; gap: 12px; }
+.opponent-name { font-size: 13px; color: #8b93a7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.opponent-bar { height: 6px; background: rgba(255, 255, 255, .06); border-radius: 999px; overflow: hidden; }
+.opponent-bar-fill { height: 100%; background: linear-gradient(90deg, #2dd4bf, #5a78ff); transition: width .2s ease; }
+.opponent-wpm { font-size: 12px; color: #8b93a7; text-align: right; }
+
+.results-list { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 8px; }
+.results-list li {
+  display: grid;
+  grid-template-columns: 50px 1fr 80px 70px;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, .03);
+  border-radius: 10px;
+  font-size: 14px;
+}
+.results-list li.self { border: 1px solid rgba(45, 212, 191, .35); }
+.place { font-family: ui-monospace, "SF Mono", Consolas, monospace; color: #2dd4bf; font-weight: 600; }
+.result-wpm { font-weight: 600; }
+.result-accuracy { color: #8b93a7; text-align: right; font-size: 13px; }
+
+@media (max-width: 600px) {
+  .panel { padding: 24px; border-radius: 12px; }
+  .race-text { font-size: 16px; padding: 14px; }
+  .opponent-row { grid-template-columns: 64px 1fr 48px; }
+}
